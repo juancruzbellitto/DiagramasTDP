@@ -63,9 +63,9 @@
 												"$ref": "AAAAAAGSXOZBK3FKhIE="
 											},
 											"font": "Arial;13;0",
-											"left": 32.72998046875,
+											"left": 30.55908203125,
 											"top": 13,
-											"width": 139.4453125,
+											"width": 130.7109375,
 											"height": 13,
 											"text": "MarioColisionaPowerUp"
 										},
@@ -78,7 +78,7 @@
 											"font": "Arial;13;1",
 											"left": 13,
 											"top": 13,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -3262,7 +3262,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGSXO2RB3Lz0ag="
 					},
-					"name": "Role1"
+					"name": "Role1",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
