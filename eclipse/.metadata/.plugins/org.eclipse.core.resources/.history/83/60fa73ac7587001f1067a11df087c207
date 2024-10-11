@@ -1,5 +1,0 @@
-package Juego;
-
-public interface EntidadJugador extends EntidadLogica{
-	
-}
