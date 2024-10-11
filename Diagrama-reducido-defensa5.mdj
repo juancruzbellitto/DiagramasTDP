@@ -22642,6 +22642,19 @@
 							}
 						},
 						{
+<<<<<<< HEAD:Diagrama-reducido-defensa-4.mdj
+							"_type": "UMLTextView",
+							"_id": "AAAAAAGSa/v7RYusAUU=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"font": "Arial;13;0",
+							"left": 1888,
+							"top": 1436,
+							"width": 100,
+							"height": 25,
+							"text": "Text"
+=======
 							"_type": "UMLAssociationView",
 							"_id": "AAAAAAGSbCSgdjh0cHc=",
 							"_parent": {
@@ -26275,6 +26288,7 @@
 							"headQualifiersCompartment": {
 								"$ref": "AAAAAAGSbEHbo69rVGk="
 							}
+>>>>>>> 75a49bf24382f85e1fa81d87612ff798225f9663:Diagrama-reducido-defensa5.mdj
 						}
 					]
 				},
