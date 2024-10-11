@@ -1,0 +1,97 @@
+package Fabricas;
+
+import Enemigos.BuzzyBeetle;
+import Enemigos.Goomba;
+import Enemigos.KoopaTroopa;
+import Enemigos.Lakitu;
+import Enemigos.PiranhaPlant;
+import Enemigos.Spiny;
+import Juego.Jugador;
+import Juego.Silueta;
+import Juego.Entidad;
+import Plataformas.Bloque;
+import Plataformas.BloqueDePregunta;
+import Plataformas.Ladrillo;
+import Plataformas.Tuberia;
+
+public class FabricaEntidades {
+	
+	protected FabricaSprites fabricaSprites;
+	
+	public FabricaEntidades(FabricaSprites fabricaSprites) {
+		this.fabricaSprites = fabricaSprites;
+	}
+
+	
+	public Silueta getSilueta(int numeroNivel) {
+		Sprite siluetaSprite = fabricaSprites.getSilueta(numeroNivel);
+		Silueta silueta = new Silueta(siluetaSprite);
+		return silueta;
+	}
+	
+	public Jugador getJugador(int x, int y) {
+		Sprite jugadorSprite = fabricaSprites.getMario();
+		Jugador jugador = new Jugador(jugadorSprite,x,y);
+		return jugador;
+	}
+	
+	public BuzzyBeetle getBuzzyBeetle(int x, int y) {
+		Sprite buzzyBeetleSprite = fabricaSprites.getBuzzyBeetle();
+		BuzzyBeetle buzzyBeetle = new BuzzyBeetle(buzzyBeetleSprite);
+		return buzzyBeetle;
+	}
+	
+	public Goomba getGoomba(int x, int y) {
+		Sprite goombaSprite = fabricaSprites.getGoomba();
+		Goomba goomba = new Goomba(goombaSprite);
+		return goomba;
+	}
+	
+	public KoopaTroopa getKoopaTroopa(int x, int y) {
+		Sprite koopaTroopaSprite = fabricaSprites.getKoopaTroopa();
+		KoopaTroopa koopaTroopa = new KoopaTroopa(koopaTroopaSprite);
+		return koopaTroopa;
+	}
+	
+	public Lakitu getLakitu(int x, int y) {
+		Sprite lakituSprite = fabricaSprites.getLakitu();
+		Lakitu lakitu = new Lakitu(lakituSprite);
+		return lakitu;
+	}
+	
+	public PiranhaPlant getPiranhaPlant(int x, int y) {
+		Sprite piranhaPlantSprite = fabricaSprites.getPiranhaPlant();
+		PiranhaPlant piranhaPlant = new PiranhaPlant(piranhaPlantSprite);
+		return piranhaPlant;
+	}
+	
+	public Spiny getSpiny(int x, int y) {
+		Sprite spinySprite = fabricaSprites.getSpiny();
+		Spiny spiny = new Spiny(spinySprite);
+		return spiny;
+	}
+	
+	public Bloque getBloque(int x, int y) {
+		Bloque bloqueSprite = fabricaSprites.getBloque();
+		Bloque bloque = new Bloque(bloqueSprite);
+		return bloque;
+	}
+	
+	public BloqueDePregunta getBloqueDePregunta(int x, int y) {
+		Sprite bloqueDePregSprite = fabricaSprites.getBloqueDePregunta();
+		BloqueDePregunta bloqueDePreg = new Bloque(bloqueDePregSprite);
+		return bloqueDePreg;
+	}
+	
+	public Ladrillo getLadrillo(int x, int y) {
+		Sprite ladrilloSprite = fabricaSprites.getLadrillo();
+		Ladrillo ladrillo = new Ladrillo(ladrilloSprite);
+		return ladrillo;
+	}
+	
+	public Tuberia getTuberia(int x, int y) {
+		Sprite tuberiaSprite = fabricaSprites.getTuberia();
+		Tuberia tuberia = new Tuberia(tuberiaSprite);
+		return tuberia;
+	}
+}
