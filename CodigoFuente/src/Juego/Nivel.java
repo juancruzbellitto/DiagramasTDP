@@ -68,20 +68,20 @@ public class Nivel {
 			case 3: agregarEnemigo(new KoopaTroopa(fabricaSprites.getKoopaTroopa(), posX, posY));
 			case 4: agregarEnemigo(new BuzzyBeetle(fabricaSprites.getBuzzyBeetle(), posX, posY));
 			case 5: agregarEnemigo(new Lakitu(fabricaSprites.getLakitu(), posX, posY));
-			case 7: agregarEnemigo(new PiranhaPlant(fabricaSprites.getPiranhaPlant(), posX, posY));
-			case 8: agregarEnemigo(new Spiny(fabricaSprites.getSpiny(), posX, posY));
+			case 6: agregarEnemigo(new PiranhaPlant(fabricaSprites.getPiranhaPlant(), posX, posY));
+			case 7: agregarEnemigo(new Spiny(fabricaSprites.getSpiny(), posX, posY));
 			
-			case 9: agregarPlataforma(new Bloque(fabricaSprites.getBloque(), posX, posY));
-			case 10: agregarPlataforma(new BloqueDePregunta(fabricaSprites.getBloqueDePregunta(), posX, posY));
-			case 11: agregarPlataforma(new Ladrillo(fabricaSprites.getLadrillo(), posX, posY));
-			case 12: agregarPlataforma(new Tuberia(fabricaSprites.getTuberia(), posX, posY));
-			case 13: agregarPlataforma(new Vacio(fabricaSprites.getVacio(), posX, posY));
+			case 8: agregarPlataforma(new Bloque(fabricaSprites.getBloque(), posX, posY));
+			case 9: agregarPlataforma(new BloqueDePregunta(fabricaSprites.getBloqueDePregunta(), posX, posY));
+			case 10: agregarPlataforma(new Ladrillo(fabricaSprites.getLadrillo(), posX, posY));
+			case 11: agregarPlataforma(new Tuberia(fabricaSprites.getTuberia(), posX, posY));
+			case 12: agregarPlataforma(new Vacio(fabricaSprites.getVacio(), posX, posY));
 			
-			case 14: agregarPowerUp(new ChampiñonVerde(fabricaSprites.getChampiñonVerde(), posX, posY));
-			case 15: agregarPowerUp(new Estrella(fabricaSprites.getEstrella(), posX, posY));
-			case 16: agregarPowerUp(new FlorDeFuego(fabricaSprites.getFlorDeFuego(), posX, posY));
-			case 17: agregarPowerUp(new Moneda(fabricaSprites.getMoneda(), posX, posY));
-			case 18: agregarPowerUp(new SuperChampiñon(fabricaSprites.getSuperChampiñon(), posX, posY));
+			case 13: agregarPowerUp(new ChampiñonVerde(fabricaSprites.getChampiñonVerde(), posX, posY));
+			case 14: agregarPowerUp(new Estrella(fabricaSprites.getEstrella(), posX, posY));
+			case 15: agregarPowerUp(new FlorDeFuego(fabricaSprites.getFlorDeFuego(), posX, posY));
+			case 16: agregarPowerUp(new Moneda(fabricaSprites.getMoneda(), posX, posY));
+			case 17: agregarPowerUp(new SuperChampiñon(fabricaSprites.getSuperChampiñon(), posX, posY));
 		}
 	}
 }
