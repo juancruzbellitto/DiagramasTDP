@@ -16,21 +16,27 @@ public class PantallaInicial extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private ControladorDeVistas controladorVistas;
 	private JLabel imagenFondo;
-	private JButton botonIniciar;
+	private JButton botonIniciarModo1;
+	private JButton botonIniciarModo2;
 	private JButton botonRanking;
+
+	
+	private static final String RUTA_FONDO_PANTALLA_INICIAL = "/Imagenes/imagenPantallaInicial.png";
 
 	public PantallaInicial(ControladorDeVistas controlador_vistas) {
 		this.controladorVistas = controlador_vistas;
 		setSize(ConstantesVistas.PANEL_ANCHO, ConstantesVistas.PANEL_ALTO);
 		setLayout(null);
 		agregarImagenFondo();
-		agregarBotonIniciar();
+		agregarBotonIniciarModo1();
+		agregarBotonIniciarModo2();
 		agregarBotonRanking();
+
 	}
 	
 	protected void agregarImagenFondo() {
 		imagenFondo = new JLabel();
-		ImageIcon iconoImagen = new ImageIcon(this.getClass().getResource("/imagenes/imagenFondo.png"));
+		ImageIcon iconoImagen = new ImageIcon(this.getClass().getResource(RUTA_FONDO_PANTALLA_INICIAL));
 		Image imagenEscalada = iconoImagen.getImage().getScaledInstance(ConstantesVistas.PANEL_ANCHO, ConstantesVistas.PANEL_ALTO, Image.SCALE_SMOOTH);
 		Icon iconoImagenEscalado = new ImageIcon(imagenEscalada);
 		imagenFondo.setIcon(iconoImagenEscalado);
@@ -38,11 +44,18 @@ public class PantallaInicial extends JPanel {
 		add(imagenFondo);
 	}
 	
-	protected void agregarBotonIniciar() {
-		botonIniciar = new JButton();
-		decorarBotonIniciar();
-		registrarOyenteBotonIniciar();
-		add(botonIniciar);
+	protected void agregarBotonIniciarModo1() {
+		botonIniciarModo1 = new JButton();
+		decorarBotonIniciarModo1();
+		registrarOyenteBotonIniciarModo1();
+		add(botonIniciarModo1);
+	}
+	
+	protected void agregarBotonIniciarModo2() {
+		botonIniciarModo2 = new JButton();
+		decorarBotonIniciarModo2();
+		registrarOyenteBotonIniciarModo1();
+		add(botonIniciarModo2);
 	}
 	
 	protected void agregarBotonRanking() {
@@ -52,18 +65,31 @@ public class PantallaInicial extends JPanel {
 		add(botonRanking);
 	}
 	
-	protected void decorarBotonIniciar() {
-		transparentarBoton(botonIniciar);
-		botonIniciar.setBounds((ConstantesVistas.PANEL_ANCHO / 2) - 100 ,ConstantesVistas.PANEL_ALTO - 150, 200 , 50);
+	protected void decorarBotonIniciarModo1() {
+		transparentarBoton(botonIniciarModo1);
+		botonIniciarModo1.setBounds((ConstantesVistas.PANEL_ANCHO / 2) - 140 ,ConstantesVistas.PANEL_ALTO - 250, 330 , 40);
+	}
+	
+	protected void decorarBotonIniciarModo2() {
+		transparentarBoton(botonIniciarModo2);
+		botonIniciarModo2.setBounds((ConstantesVistas.PANEL_ANCHO / 2) - 140 ,ConstantesVistas.PANEL_ALTO - 200, 330 , 40);
 	}
 	
 	protected void decorarBotonRanking() {
 		transparentarBoton(botonRanking);
-		botonRanking.setBounds((ConstantesVistas.PANEL_ANCHO / 2) - 130 ,ConstantesVistas.PANEL_ALTO - 90, 260 , 50);
+		botonRanking.setBounds((ConstantesVistas.PANEL_ANCHO / 2) - 140 ,ConstantesVistas.PANEL_ALTO - 143, 330 , 40);
 	}
 	
-	protected void registrarOyenteBotonIniciar() {
-		botonIniciar.addActionListener(new ActionListener() {
+	protected void registrarOyenteBotonIniciarModo1() {
+		botonIniciarModo1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controladorVistas.accionarInicioJuego();
+			}
+		});
+	}
+	
+	protected void registrarOyenteBotonIniciarModo2() {
+		botonIniciarModo2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controladorVistas.accionarInicioJuego();
 			}

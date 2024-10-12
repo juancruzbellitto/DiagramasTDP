@@ -25,7 +25,10 @@ public class FabricaEntidades {
 	}
 	
 	public Jugador getJugador(int x, int y) {
-		Sprite jugadorSprite = fabricaSprites.getMario();
+		
+		// agregar estados para las sprites
+		
+		Sprite jugadorSprite = fabricaSprites.getMarioInmovil();
 		Jugador jugador = new Jugador(jugadorSprite,x,y);
 		return jugador;
 	}
