@@ -1,6 +1,7 @@
 package Parser;
 
 import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -9,6 +10,8 @@ import java.util.List;
 
 import Fabricas.FabricaEntidades;
 import Juego.Nivel;
+import Juego.Silueta;
+
 
 public class GeneradorNivel {
 	
@@ -25,19 +28,34 @@ public class GeneradorNivel {
 		archivo = new File("formateoNiveles.txt");
 	}
 	
-	public Nivel generarNivel() {
-		Nivel nivel = new Nivel();
+	public Nivel generarNivel(int n) {
+		//Nivel nivel = new Nivel(fabricaEntidades.getSilueta(n));
 		
-		List<char []> listaDeDatos = leerDatosNivel(archivo);
+		//List<char []> listaDeDatos = leerDatosNivel(archivo);
 		
-		for(char[] arregloDeDatosNivel : listaDeDatos) {
+		/*for(char[] arregloDeDatosNivel : listaDeDatos) {
 			nivel.agregarEntidad(arregloDeDatosNivel[ESPACIO_ENTIDAD], arregloDeDatosNivel[ESPACIO_POSICION_X], arregloDeDatosNivel[ESPACIO_POSICION_Y]);
 		}
 		
-		return nivel;
+		return nivel;*/
+		return generarNivelHardcoding(n);
 	}
 	
-	public List<char []> leerDatosNivel(File archivo) {
+	public Nivel generarNivelHardcoding(int n) {
+		Silueta silueta = fabricaEntidades.getSilueta(n);
+		Nivel nivel = new Nivel(silueta);
+		nivel.agregarJugador(fabricaEntidades.getJugador(200, 200));
+		nivel.agregarEnemigo(fabricaEntidades.getGoomba(350,75));
+		nivel.agregarEnemigo(fabricaEntidades.getGoomba(150,200));
+		nivel.agregarEnemigo(fabricaEntidades.getLakitu(250,75));
+		nivel.agregarEnemigo(fabricaEntidades.getLakitu(550,15));
+		nivel.agregarEnemigo(fabricaEntidades.getSpiny(450,50));
+		
+		return nivel;
+		
+	}
+	
+	/*public List<char []> leerDatosNivel(File archivo) {
 		
 		String datosNivel;
 		char[] arregloDeDatos = new char [3];
@@ -67,7 +85,7 @@ public class GeneradorNivel {
 		}
 		
 		return listaDeArreglosDeDatos;
-	}
+	}*/
 	
 	
 }

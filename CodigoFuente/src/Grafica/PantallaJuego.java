@@ -1,59 +1,65 @@
 package Grafica;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
-import java.awt.*;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
+import Juego.EntidadJugador;
+import Juego.EntidadLogica;
 
-public class PantallaJuego extends JPanel {
-    private JLabel imagenNivel;
-    private JScrollPane panelScrollNivel;
-    private JPanel panelNivel;
+public class PantallaJuego extends JPanel{
 
-    public PantallaJuego() {
-        setSize(ConstantesVistas.PANEL_ANCHO, ConstantesVistas.PANEL_ALTO);
-        setLayout(new BorderLayout());
-        agregarImagenFondo();
-        agregarScroll();
-    }
-/*
-    protected void agregarImagenFondo() {
-        ImageIcon iconoImagen = new ImageIcon(this.getClass().getResource("/imagenes/imagenNivel.png"));
-        imagenNivel = new JLabel(iconoImagen);
-        panelNivel = new JPanel();
-        panelNivel.setLayout(null);
-        imagenNivel.setBounds(0, 0, iconoImagen.getIconWidth(), iconoImagen.getIconHeight());
-        panelNivel.add(imagenNivel);
-        panelNivel.setPreferredSize(new Dimension(iconoImagen.getIconWidth(), iconoImagen.getIconHeight()));
-    }
-
-    protected void agregarScroll() {
-        panelScrollNivel = new JScrollPane(panelNivel);
-        panelScrollNivel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        panelScrollNivel.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
-        panelScrollNivel.setPreferredSize(new Dimension(800, 600));
-        add(panelScrollNivel, BorderLayout.CENTER);
-
-        revalidate();
-        repaint();
-    }
-
-
-*/
-
-
-
-
-
+	private static final long serialVersionUID = 1L;
+	protected JPanel panelJuego;
+	protected JLabel imagenJuego;
+	protected JScrollPane panelScrollJuego;
 	
-	public static void main(String[] args) {
-        JFrame frame = new JFrame("Pantalla de Juego");
-        PantallaJuego pantalla = new PantallaJuego();
-
-        frame.add(pantalla);
-        frame.setSize(ConstantesVistas.PANEL_ANCHO, ConstantesVistas.PANEL_ALTO);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-    }
-
+	public PantallaJuego() {
+		setPreferredSize(new Dimension(ConstantesVistas.PANEL_JUEGO_ANCHO, ConstantesVistas.PANEL_JUEGO_ALTO));
+		setLayout(new BorderLayout());
+		agregarPanelJuegoConFondoYScroll();
+	}
+	
+	protected void agregarPanelJuegoConFondoYScroll() {
+		imagenJuego = new JLabel();
+		imagenJuego.setLayout(null);
+		imagenJuego.setBounds(0,0, ConstantesVistas.PANEL_JUEGO_ANCHO, ConstantesVistas.PANEL_JUEGO_ALTO);
+		
+		panelJuego = new JPanel(null);
+		panelJuego.setPreferredSize(new Dimension(ConstantesVistas.PANEL_JUEGO_ANCHO, ConstantesVistas.PANEL_JUEGO_ALTO));
+		panelJuego.add(imagenJuego);
+		
+		panelScrollJuego = new JScrollPane(panelJuego);
+		panelScrollJuego.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		panelScrollJuego.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+		panelScrollJuego.setBounds(0, 0, ConstantesVistas.PANEL_JUEGO_ANCHO, ConstantesVistas.PANEL_JUEGO_ALTO);
+			
+		add(panelScrollJuego, BorderLayout.CENTER);
+	}
+	
+	public Observer incorporarEntidad(EntidadLogica entidadLogica) {
+		ObserverEntidades observerEntidad = new ObserverEntidades(entidadLogica);
+		imagenJuego.add(observerEntidad);	
+		return observerEntidad;
+	}
+	
+	public Observer incorporarEntidadJugador(EntidadJugador entidad_jugador) {
+		ObserverJugador observerJugador = new ObserverJugador(this, entidad_jugador);
+		imagenJuego.add(observerJugador);
+		//actualizar_info_jugador(entidad_jugador);
+		return observerJugador;
+	}
+	
+	public Observer incorporarSilueta(EntidadLogica entidad_logica) {
+		ObserverEntidades observerEntidad = new ObserverEntidades(entidad_logica);
+		imagenJuego.setIcon(new ImageIcon(getClass().getClassLoader().getResource(entidad_logica.getSprite().getRutaImagen())));
+		imagenJuego.setBounds(0,0, imagenJuego.getIcon().getIconWidth(), imagenJuego.getIcon().getIconHeight());
+		panelJuego.setPreferredSize(new Dimension(imagenJuego.getIcon().getIconWidth(), imagenJuego.getIcon().getIconHeight()));
+		return observerEntidad;
+	}
+		
 }

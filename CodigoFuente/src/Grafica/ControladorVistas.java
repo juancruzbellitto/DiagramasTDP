@@ -2,10 +2,10 @@ package Grafica;
 
 import javax.swing.JFrame;
 
+
 import Juego.EntidadJugador;
 import Juego.EntidadLogica;
 import Juego.Juego;
-import Grafica.ConstantesVistas;
 
 public class ControladorVistas implements ControladorDeVistas,ControladorEntreJuegoVista{
 	protected JFrame ventana;
@@ -48,8 +48,9 @@ public class ControladorVistas implements ControladorDeVistas,ControladorEntreJu
 
 
 	public void mostrarPantallaJuego() {
-		
-		
+		ventana.setContentPane(pantallaJuego);
+		ventana.setSize(ConstantesVistas.PANEL_JUEGO_ANCHO,ConstantesVistas.PANEL_JUEGO_ALTO);
+		refrescar();
 	}
 
 
@@ -77,26 +78,28 @@ public class ControladorVistas implements ControladorDeVistas,ControladorEntreJu
 	}
 
 
-	public void camibarModoJuego(int modo) {
+	public void cambiarModoJuego(int modo) {
 		
 		
 	}
 
 
 	public Observer registrarEntidad(EntidadLogica entidadLogica) {
-		
-		return null;
+		Observer observerEntidad = pantallaJuego.incorporarEntidad(entidadLogica);
+		refrescar();
+		return observerEntidad;
 	}
-
-
+	
 	public Observer registrarEntidad(EntidadJugador entidadJugador) {
-		
-		return null;
+		Observer observerJugador = pantallaJuego.incorporarEntidadJugador(entidadJugador);
+		refrescar();
+		return observerJugador;
 	}
-
-
+	
 	public Observer registrarSilueta(EntidadLogica silueta) {
-		
-		return null;
+		Observer observerSilueta = pantallaJuego.incorporarSilueta(silueta);
+		refrescar();
+		return observerSilueta;
 	}
+	
 }

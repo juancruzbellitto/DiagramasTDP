@@ -13,6 +13,7 @@ import Fabricas.FabricaSpritesModo1;
 
 public class Nivel {
 
+	protected Silueta silueta;
 	protected List<Enemigo> listaEnemigos;
 	protected List<PowerUp> listaPowerUps;
 	protected List<Plataforma> listaPlataformas;
@@ -21,28 +22,33 @@ public class Nivel {
 	protected FabricaSprites fabricaSprites;
 	
 	
-	public Nivel() {
+	public Nivel(Silueta silueta) {
 		this.listaEnemigos = new LinkedList<Enemigo>();
 		this.listaPowerUps = new LinkedList<PowerUp>();
 		this.listaPlataformas = new LinkedList<Plataforma>();
+		this.silueta = silueta;
 		
 		this.fabricaSprites = new FabricaSpritesModo1();
 	}
 	
 	public Jugador getJugador() {
-		return this.jugador;
+		return jugador;
+	}
+	
+	public Silueta getSilueta() {
+		return silueta;
 	}
 	
 	public List<Enemigo> getListaEnemigos() {
-		return this.listaEnemigos;
+		return listaEnemigos;
 	}
 	
 	public List<PowerUp> getListaPowerUps() {
-		return this.listaPowerUps;
+		return listaPowerUps;
 	}
 	
-	public List<Plataforma> getListaPlataforma() {
-		return this.listaPlataformas;
+	public List<Plataforma> getListaPlataformas() {
+		return listaPlataformas;
 	}
 	
 	public void agregarJugador(Jugador jugador) {
@@ -50,15 +56,15 @@ public class Nivel {
 	}
 	
 	public void agregarEnemigo(Enemigo enemigo) {
-		listaEnemigos.addLast(enemigo);
+		listaEnemigos.add(enemigo);
 	}
 	
 	public void agregarPowerUp(PowerUp powerUp) {
-		listaPowerUps.addLast(powerUp);
+		listaPowerUps.add(powerUp);
 	}
 	
 	public void agregarPlataforma(Plataforma plataforma) {
-		listaPlataformas.addLast(plataforma);
+		listaPlataformas.add(plataforma);
 	}
 	
 	public void agregarEntidad(int idEntidad, int posX, int posY) {

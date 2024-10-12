@@ -21,7 +21,7 @@ public class PantallaInicial extends JPanel {
 	private JButton botonRanking;
 
 	
-	private static final String RUTA_FONDO_PANTALLA_INICIAL = "/Imagenes/imagenPantallaInicial.png";
+	private static final String RUTA_FONDO_PANTALLA_INICIAL = "/Imagenes/imagenFondo.png";
 
 	public PantallaInicial(ControladorDeVistas controlador_vistas) {
 		this.controladorVistas = controlador_vistas;

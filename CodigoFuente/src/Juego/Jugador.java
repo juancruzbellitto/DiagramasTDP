@@ -1,12 +1,14 @@
 package Juego;
 
 import Fabricas.Sprite;
+import Grafica.Observer;
 
 public class Jugador implements EntidadJugador{
 	
 	protected Sprite sprite;
 	protected int x;
 	protected int y;
+	protected Observer observer;
 	
 	public Jugador(Sprite sprite, int x, int y) {
 		this.sprite = sprite;
@@ -15,7 +17,7 @@ public class Jugador implements EntidadJugador{
 	}
 
 	public Sprite getSprite() {
-		return null;
+		return sprite;
 	}
 
 	public int getX() {
@@ -24,6 +26,18 @@ public class Jugador implements EntidadJugador{
 
 	public int getY() {
 		return 0;
+	}
+	
+	public void setX(int x) {
+		this.x=x;
+	}
+	
+	public void setY(int y) {
+		this.y=y;
+	}
+	
+	public void registrarObserver(Observer observer) {
+		this.observer=observer;
 	}
 
 	public void cambiarEstado() {
