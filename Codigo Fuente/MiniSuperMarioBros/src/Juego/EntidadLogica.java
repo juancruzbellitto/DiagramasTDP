@@ -1,9 +1,0 @@
-package Juego;
-
-import Sprites.Sprite;
-
-public interface EntidadLogica {
-	public Sprite getSprite();
-	public int getX();
-	public int getY();
-}
