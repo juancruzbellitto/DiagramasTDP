@@ -11,36 +11,68 @@ public abstract class FabricaSprites {
 		return new Sprite(rutaACarpeta +"/silueta" + numero + ".png");
 	}
 	
-	public Sprite getMario() {
-		return new Sprite(rutaACarpeta +"/mario.png");
+	public Sprite getMarioInmovil() {
+		return new Sprite(rutaACarpeta +"/marioInmovil.png");
 	}
 	
-	public Sprite getSuperMario() {
-		return new Sprite(rutaACarpeta +"/superMario.png");
+	public Sprite getMarioMoviendo() {
+		return new Sprite(rutaACarpeta +"/marioMoviendose.gif");
+	}
+	
+	public Sprite getMarioSaltando() {
+		return new Sprite(rutaACarpeta +"/marioSaltando.png");
+	}
+	
+	public Sprite getSuperMarioInmovil() {
+		return new Sprite(rutaACarpeta +"/superMarioInmovil.png");
+	}
+	
+	public Sprite getSuperMarioMoviendo() {
+		return new Sprite(rutaACarpeta +"/superMarioMoviendose.gif");
+	}
+	
+	public Sprite getSuperMarioSaltando() {
+		return new Sprite(rutaACarpeta +"/superMarioSaltando.png");  
+	}
+	
+	public Sprite getSuperMarioBolaDeFuegoInmovil() {
+		return new Sprite(rutaACarpeta +"/marioBolaDeFuegoInmovil.png");
+	}
+	
+	public Sprite getSuperMarioBolaDeFuegoMoviendo() {
+		return new Sprite(rutaACarpeta +"/marioBolaDeFuegoMoviendose.gif");
+	}
+	
+	public Sprite getSuperMarioBolaDeFuegoSaltando() {
+		return new Sprite(rutaACarpeta +"/marioBolaDeFuegoSaltando.png");
+	}
+	
+	public Sprite getSuperMarioInvencibleInmovil() {
+		return new Sprite(rutaACarpeta +"/marioInvencibleInmovil.gif");
 	}
 	
 	public Sprite getBuzzyBeetle() {
-		return new Sprite(rutaACarpeta +"/buzzyBeetle.png");
+		return new Sprite(rutaACarpeta +"/buzzyBeetle.gif");
 	}
 	
 	public Sprite getGoomba() {
-		return new Sprite(rutaACarpeta +"/goomba.png");
+		return new Sprite(rutaACarpeta +"/goomba.gif");
 	}
 	
 	public Sprite getKoopaTroopa() {
-		return new Sprite(rutaACarpeta +"/koopaTroopa.png");
+		return new Sprite(rutaACarpeta +"/koopaTroopa.gif");
 	}
 	
 	public Sprite getLakitu() {
-		return new Sprite(rutaACarpeta +"/lakitu.png");
+		return new Sprite(rutaACarpeta +"/lakitu.gif");
 	}
 	
 	public Sprite getPiranhaPlant() {
-		return new Sprite(rutaACarpeta +"/piranhaPlant.png");
+		return new Sprite(rutaACarpeta +"/piranhaPlant.gif");
 	}
 	
 	public Sprite getSpiny() {
-		return new Sprite(rutaACarpeta +"/spiny.png");
+		return new Sprite(rutaACarpeta +"/spiny.gif");
 	}
 	
 	public Sprite getBloque() {
@@ -48,7 +80,7 @@ public abstract class FabricaSprites {
 	}
 	
 	public Sprite getBloqueDePregunta() {
-		return new Sprite(rutaACarpeta +"/bloqueDePregunta.png");
+		return new Sprite(rutaACarpeta +"/bloqueDePregunta.gif");
 	}
 	
 	public Sprite getLadrillo() {
@@ -72,15 +104,15 @@ public abstract class FabricaSprites {
 	}
 	
 	public Sprite getEstrella() {
-		return new Sprite(rutaACarpeta +"/estrella.png");
+		return new Sprite(rutaACarpeta +"/estrella.gif");
 	}
 	
 	public Sprite getFlorDeFuego() {
-		return new Sprite(rutaACarpeta +"/florDeFuego.png");
+		return new Sprite(rutaACarpeta +"/florDeFuego.gif");
 	}
 	
 	public Sprite getMoneda() {
-		return new Sprite(rutaACarpeta +"/moneda.png");
+		return new Sprite(rutaACarpeta +"/moneda.gif");
 	}
 	
 	public Sprite getSuperChampiñon() {
@@ -88,6 +120,10 @@ public abstract class FabricaSprites {
 	}
 	
 	public Sprite getBolaDeFuego() {
-		return new Sprite(rutaACarpeta +"/bolaDeFuego.png");
+		return new Sprite(rutaACarpeta +"/bolaDeFuego.gif");
+	}
+	
+	public Sprite getBolaDeFuegoHit() {
+		return new Sprite(rutaACarpeta +"/bolaDeFuegoHit.gif");
 	}
 }
