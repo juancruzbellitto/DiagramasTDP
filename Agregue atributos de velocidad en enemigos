@@ -1,0 +1,21 @@
+package Enemigos;
+
+import Fabricas.Sprite;
+import Juego.Entidad;
+
+public abstract class Enemigo extends Entidad{
+	protected int velX;
+	protected int velY;
+
+	public Enemigo(Sprite sprite, int x, int y) {
+		super(sprite, x, y);
+	}
+	
+	public int getVelX() {
+		return velX;
+	}
+	
+	public int getVelY() {
+		return velY;
+	}
+}
