@@ -1,0 +1,52 @@
+package Juego;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+public class MoverMario extends KeyAdapter implements Runnable {
+	protected Jugador mario;
+	protected boolean moverDerecha = false;  
+    protected boolean moverIzquierda = false;
+    
+    public MoverMario(Jugador j) {
+    	this.mario=j;
+    }
+	
+	public void teclaPresionada(KeyEvent e) {
+        int keyCode = e.getKeyCode();
+        if (keyCode == KeyEvent.VK_LEFT) {
+            moverIzquierda = true;  // Mover hacia la izquierda
+        } else if (keyCode == KeyEvent.VK_RIGHT) {
+            moverDerecha = true; // Mover hacia la derecha
+        }
+    }
+	
+	public void teclaSoltada(KeyEvent e) { 
+        int keyCode = e.getKeyCode();
+        if (keyCode == KeyEvent.VK_LEFT) {
+            moverIzquierda = false;  // Dejar de moverse hacia la izquierda
+        } else if (keyCode == KeyEvent.VK_RIGHT) {
+            moverDerecha = false; // Dejar de moverse hacia la derecha
+        }
+    }
+	
+	public void run() {
+		while (true) {
+            if (moverIzquierda) {
+                mario.moverIzquierda();  // Llamar al método de mover a la izquierda de Jugador
+            }
+            if (moverDerecha) {
+                mario.moverDerecha();    // Llamar al método de mover a la derecha de Jugador
+            }
+           // repaint();  // Habria que redibujar aca a mario asi se actualiza con la grafica
+
+            try {
+                Thread.sleep(20);  // Control de la velocidad del movimiento
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+		
+	}
+
+}
