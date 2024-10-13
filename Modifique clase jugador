@@ -1,0 +1,92 @@
+package Juego;
+
+import Fabricas.Sprite;
+import Grafica.Observer;
+
+public class Jugador implements EntidadJugador{
+	
+	protected Sprite sprite;
+	protected int x;
+	protected int y;
+	protected int velX;
+	protected int velY;
+	protected Observer observer;
+	
+	public Jugador(Sprite sprite, int x, int y, int velX) {
+		this.sprite = sprite;
+		this.x = x;
+		this.y = y;
+		this.velX=velX;
+	}
+
+	public Sprite getSprite() {
+		return null;
+	}
+	
+	public void setX(float posx) {
+		this.x= (int) posx;
+	}
+
+	public int getX() {
+		return 0;
+	}
+
+	public int getY() {
+		return 0;
+	}
+	
+	public int getVelX() {
+		return velX;
+	}
+	
+	public int getVelY() {
+		return velY;
+	}
+	
+	public void setVelX(int velx) {
+		this.velX=velx;
+	}
+	
+	public void setVelY(int vely) {
+		this.velY=vely;
+	}
+	
+	public void registrarObserver(Observer observer) {
+		this.observer=observer;
+	}
+
+	public void cambiarEstado() {
+		
+	}
+
+	public void saltar() {
+		
+	}
+
+	public void moverIzquierda() {
+		setVelX(-5);
+	}
+
+	public void moverDerecha() {
+		setVelX(5);
+	}
+
+	public void lanzarBolasDeFuego() {
+		
+	}
+
+	public void afectar(EntidadLogica e) {
+		
+	}
+
+	public void serAfectado(EntidadLogica e) {
+		
+	}
+	
+	public void actualizarPosicionJugador() { //para que este constantemente actualizandose la pos de Mario
+		setX(getX()+getVelX());
+	}
+	
+	
+	
+}
