@@ -8,6 +8,7 @@ public class Jugador implements EntidadJugador{
 	protected Sprite sprite;
 	protected int x;
 	protected int y;
+	protected int velX;
 	protected Observer observer;
 	
 	public Jugador(Sprite sprite, int x, int y) {
@@ -26,6 +27,10 @@ public class Jugador implements EntidadJugador{
 
 	public int getY() {
 		return y;
+	}
+	
+	public void setVelX(int VelocidadX) {
+		this.velX=VelocidadX;
 	}
 	
 	public void setX(int x) {
