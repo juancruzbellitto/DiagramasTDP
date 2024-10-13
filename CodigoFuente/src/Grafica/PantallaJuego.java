@@ -17,6 +17,7 @@ public class PantallaJuego extends JPanel{
 	protected JPanel panelJuego;
 	protected JLabel imagenJuego;
 	protected JScrollPane panelScrollJuego;
+ 
 	
 	public PantallaJuego() {
 		setPreferredSize(new Dimension(ConstantesVistas.PANEL_JUEGO_ANCHO, ConstantesVistas.PANEL_JUEGO_ALTO));

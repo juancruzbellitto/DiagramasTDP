@@ -27,7 +27,7 @@ public class Nivel {
 		this.listaPowerUps = new LinkedList<PowerUp>();
 		this.listaPlataformas = new LinkedList<Plataforma>();
 		this.silueta = silueta;
-		
+
 		this.fabricaSprites = new FabricaSpritesModo1();
 	}
 	
@@ -70,6 +70,7 @@ public class Nivel {
 	public void agregarEntidad(int idEntidad, int posX, int posY) {
 			
 		switch(idEntidad) {
+			 
 			case 2: agregarEnemigo(new Goomba(fabricaSprites.getGoomba(), posX, posY));
 			case 3: agregarEnemigo(new KoopaTroopa(fabricaSprites.getKoopaTroopa(), posX, posY));
 			case 4: agregarEnemigo(new BuzzyBeetle(fabricaSprites.getBuzzyBeetle(), posX, posY));

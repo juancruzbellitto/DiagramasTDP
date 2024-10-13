@@ -44,12 +44,12 @@ public class GeneradorNivel {
 	public Nivel generarNivelHardcoding(int n) {
 		Silueta silueta = fabricaEntidades.getSilueta(n);
 		Nivel nivel = new Nivel(silueta);
-		nivel.agregarJugador(fabricaEntidades.getJugador(200, 200));
-		nivel.agregarEnemigo(fabricaEntidades.getGoomba(350,75));
-		nivel.agregarEnemigo(fabricaEntidades.getGoomba(150,200));
-		nivel.agregarEnemigo(fabricaEntidades.getLakitu(250,75));
-		nivel.agregarEnemigo(fabricaEntidades.getLakitu(550,15));
-		nivel.agregarEnemigo(fabricaEntidades.getSpiny(450,50));
+		nivel.agregarJugador(fabricaEntidades.getJugador(200, 408));
+		nivel.agregarEnemigo(fabricaEntidades.getGoomba(350,500));
+		nivel.agregarEnemigo(fabricaEntidades.getGoomba(150,408)); //408 ES EL PISO JUSTOOOO!!! (para los chikis)
+		nivel.agregarEnemigo(fabricaEntidades.getLakitu(250,415));
+		nivel.agregarEnemigo(fabricaEntidades.getLakitu(550,415));
+		nivel.agregarEnemigo(fabricaEntidades.getSpiny(450,408));
 		
 		return nivel;
 		
