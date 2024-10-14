@@ -2,6 +2,7 @@ package Parser;
 
 import java.io.BufferedReader;
 
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -44,11 +45,19 @@ public class GeneradorNivel {
 	public Nivel generarNivelHardcoding(int n) {
 		Silueta silueta = fabricaEntidades.getSilueta(n);
 		Nivel nivel = new Nivel(silueta);
+<<<<<<< HEAD
 		nivel.agregarJugador(fabricaEntidades.getJugador(400, 408));
 		nivel.agregarEnemigo(fabricaEntidades.getGoomba(350,500));
 		nivel.agregarEnemigo(fabricaEntidades.getGoomba(150,408)); //408 ES EL PISO JUSTOOOO!!! (para los chikis)
 		nivel.agregarEnemigo(fabricaEntidades.getLakitu(250,415));
 		nivel.agregarEnemigo(fabricaEntidades.getLakitu(550,415));
+=======
+		nivel.agregarJugador(fabricaEntidades.getJugador(20, 408));
+		nivel.agregarEnemigo(fabricaEntidades.getGoomba(350,408));
+		nivel.agregarEnemigo(fabricaEntidades.getGoomba(100,408));
+		nivel.agregarEnemigo(fabricaEntidades.getLakitu(250,408));
+		nivel.agregarEnemigo(fabricaEntidades.getLakitu(550,408));
+>>>>>>> ec553c65807c2556bb3679fc73ca09ab269ff1b3
 		nivel.agregarEnemigo(fabricaEntidades.getSpiny(450,408));
 		
 		return nivel;

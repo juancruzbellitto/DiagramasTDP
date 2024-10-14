@@ -10,11 +10,16 @@ public class Jugador implements EntidadJugador{
 	protected Sprite sprite;
 	protected int x;
 	protected int y;
+<<<<<<< HEAD
 	protected int velocidad;
 	protected int puntaje;
 	protected int vidas;
 	protected int monedas;
+=======
+>>>>>>> ec553c65807c2556bb3679fc73ca09ab269ff1b3
 	protected Observer observer;
+	protected int direccion;
+	protected int velX;
 	
 	
 	
@@ -26,12 +31,17 @@ public class Jugador implements EntidadJugador{
 		this.sprite = sprite;
 		this.x = x;
 		this.y = y;
+<<<<<<< HEAD
 		this.velocidad = VELOCIDAD_JUGADOR_DEFAULT;
 		
 		this.vidas = 3;
 		this.puntaje = 0;
 		this.monedas = 0;
 
+=======
+		direccion=0;
+		velX=1;
+>>>>>>> ec553c65807c2556bb3679fc73ca09ab269ff1b3
 	}
 
 	public Sprite getSprite() {
@@ -46,6 +56,7 @@ public class Jugador implements EntidadJugador{
 		return y;
 	}
 	
+<<<<<<< HEAD
 	public int getVelocidad() {
 		return this.velocidad;
 	}
@@ -68,6 +79,14 @@ public class Jugador implements EntidadJugador{
 	
 	public void setVelocidad(int velocidad) {
 		this.velocidad = velocidad;
+=======
+	public int getVelX() {
+		return velX;
+	}
+	
+	public int getDireccion() {
+		return direccion;
+>>>>>>> ec553c65807c2556bb3679fc73ca09ab269ff1b3
 	}
 	
 	public void setX(int x) {
@@ -78,6 +97,7 @@ public class Jugador implements EntidadJugador{
 		this.y=y;
 	}
 	
+<<<<<<< HEAD
 	public void setDireccionQuieto() {
 		direccion = 0;
 	}
@@ -88,12 +108,34 @@ public class Jugador implements EntidadJugador{
 	
 	public void setDireccionIzquierda() {
 		direccion = -1;
+=======
+	public void setDireccion(int direccion) {
+		this.direccion = direccion;
+	}
+	
+	public void setSprite(Sprite sprite) {
+		this.sprite = sprite;
+>>>>>>> ec553c65807c2556bb3679fc73ca09ab269ff1b3
 	}
 	
 	public void registrarObserver(Observer observer) {
 		this.observer=observer;
 	}
+	
+	public void mover() {
+		if(direccion==1) {
+			x = x + velX;
+			observer.actualizar();
+		}
+		else {
+			if(direccion==2) {
+				x = x - velX;
+				observer.actualizar();
+			}
+		}
+	}
 
+<<<<<<< HEAD
 	public void moverIzquierda() {
 		x -= velocidad;
 		
@@ -127,6 +169,16 @@ public class Jugador implements EntidadJugador{
 	}
 
 	@Override
+=======
+	public void cambiarEstado() {
+		
+	}
+
+	public void saltar() {
+		
+	}
+
+>>>>>>> ec553c65807c2556bb3679fc73ca09ab269ff1b3
 	public void lanzarBolasDeFuego() {
 		// TODO Auto-generated method stub
 		
