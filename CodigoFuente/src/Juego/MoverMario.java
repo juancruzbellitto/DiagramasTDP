@@ -1,52 +1,25 @@
 package Juego;
 
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
-public class MoverMario extends KeyAdapter implements Runnable {
-	protected Jugador mario;
-	protected boolean moverDerecha = false;  
-    protected boolean moverIzquierda = false;
-    
-    public MoverMario(Jugador j) {
-    	this.mario=j;
-    }
+public class MoverMario extends Thread{
 	
-	public void teclaPresionada(KeyEvent e) {
-        int keyCode = e.getKeyCode();
-        if (keyCode == KeyEvent.VK_LEFT) {
-            moverIzquierda = true; 
-        } else if (keyCode == KeyEvent.VK_RIGHT) {
-            moverDerecha = true; 
-        }
-    }
+	protected Juego juego;
 	
-	public void teclaSoltada(KeyEvent e) { 
-        int keyCode = e.getKeyCode();
-        if (keyCode == KeyEvent.VK_LEFT) {
-            moverIzquierda = false; 
-        } else if (keyCode == KeyEvent.VK_RIGHT) {
-            moverDerecha = false; 
-        }
-    }
+	public MoverMario(Juego juego) {
+		this.juego=juego;
+	}
 	
 	public void run() {
-		while (true) {
-            if (moverIzquierda) {
-                mario.moverIzquierda();
-            }
-            if (moverDerecha) {
-                mario.moverDerecha();    
-            }
-     
+		while(true) {
+						try {
+								Thread.sleep(10);
+								juego.getNivelActual().getJugador().mover();
+							} catch (InterruptedException e) {
+									e.printStackTrace();
+						}
 
-            try {
-                Thread.sleep(20);  
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-		
-	}
+					}
 
+		}
 }
+

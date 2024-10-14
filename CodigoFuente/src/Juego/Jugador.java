@@ -8,15 +8,16 @@ public class Jugador implements EntidadJugador{
 	protected Sprite sprite;
 	protected int x;
 	protected int y;
-	protected int velX;
-	protected int velY;
-	protected boolean enElAire=false;
 	protected Observer observer;
+	protected int direccion;
+	protected int velX;
 	
 	public Jugador(Sprite sprite, int x, int y) {
 		this.sprite = sprite;
 		this.x = x;
 		this.y = y;
+		direccion=0;
+		velX=1;
 	}
 
 	public Sprite getSprite() {
@@ -31,8 +32,12 @@ public class Jugador implements EntidadJugador{
 		return y;
 	}
 	
-	public void setVelX(int VelocidadX) {
-		this.velX=VelocidadX;
+	public int getVelX() {
+		return velX;
+	}
+	
+	public int getDireccion() {
+		return direccion;
 	}
 	
 	public void setX(int x) {
@@ -43,8 +48,29 @@ public class Jugador implements EntidadJugador{
 		this.y=y;
 	}
 	
+	public void setDireccion(int direccion) {
+		this.direccion = direccion;
+	}
+	
+	public void setSprite(Sprite sprite) {
+		this.sprite = sprite;
+	}
+	
 	public void registrarObserver(Observer observer) {
 		this.observer=observer;
+	}
+	
+	public void mover() {
+		if(direccion==1) {
+			x = x + velX;
+			observer.actualizar();
+		}
+		else {
+			if(direccion==2) {
+				x = x - velX;
+				observer.actualizar();
+			}
+		}
 	}
 
 	public void cambiarEstado() {
@@ -52,49 +78,8 @@ public class Jugador implements EntidadJugador{
 	}
 
 	public void saltar() {
-		if(!enElAire) {
-			velY=-15;
-			enElAire=true;
-			
-		}
-		
 		
 	}
-
-	public void moverIzquierda() {
-		setVelX(-5);
-		
-	}
-
-	public void moverDerecha() {
-		setVelX(5);
-		
-	}
-	public void detener() {
-		setVelX(0);
-	}
-	public void actualizar() {
-        x += velX;
-        y += velY;
-        
-        if (enElAire) {
-            velY += 1;  
-        }
-
-        if (y >= 0) {  
-            y = 0;
-            enElAire = false;
-            velY = 0;
-        }
-
-        if (observer != null) { // ?????????? no se si hace falta avisarle al observer
-            observer.actualizar();  
-        }
-    }
-
-		
-		
-	
 
 	public void lanzarBolasDeFuego() {
 		
@@ -104,8 +89,7 @@ public class Jugador implements EntidadJugador{
 		
 	}
 
-	public void serAfectado(EntidadLogica e){
-		
+	public void serAfectado(EntidadLogica e) {
 		
 	}
 	

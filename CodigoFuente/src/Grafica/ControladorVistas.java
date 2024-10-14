@@ -1,11 +1,17 @@
 package Grafica;
 
+
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JFrame;
 
 
 import Juego.EntidadJugador;
 import Juego.EntidadLogica;
 import Juego.Juego;
+import Juego.KeyListenerMario;
 
 public class ControladorVistas implements ControladorDeVistas,ControladorEntreJuegoVista{
 	protected JFrame ventana;
@@ -18,11 +24,11 @@ public class ControladorVistas implements ControladorDeVistas,ControladorEntreJu
 	
 	public ControladorVistas(Juego juego) {
 		this.juego=juego;
-		pantallaInicial=new PantallaInicial(this);
-		pantallaJuego=new PantallaJuego();
-		pantallaGameOver=new PantallaGameOver();
-		pantallaFinNivel=new PantallaFinNivel();
-		pantallaRanking=new PantallaRanking();
+		pantallaInicial = new PantallaInicial(this);
+		pantallaJuego = new PantallaJuego();
+		pantallaGameOver = new PantallaGameOver();
+		pantallaFinNivel = new PantallaFinNivel();
+		pantallaRanking = new PantallaRanking();
 		configurarVentana();
 		
 	}
@@ -40,12 +46,6 @@ public class ControladorVistas implements ControladorDeVistas,ControladorEntreJu
 		ventana.setContentPane(pantallaInicial);
 		refrescar();
 	}
-	
-	protected void refrescar() {
-		ventana.revalidate();
-		ventana.repaint();
-	}
-
 
 	public void mostrarPantallaJuego() {
 		ventana.setContentPane(pantallaJuego);
@@ -59,18 +59,17 @@ public class ControladorVistas implements ControladorDeVistas,ControladorEntreJu
 		
 	}
 
+	
+	protected void refrescar() {
+		ventana.revalidate();
+		ventana.repaint();
+	}
+
+
 
 	public void accionarInicioJuego() {
 		juego.iniciar();
-		
 	}
-
-
-	public void accionarPantallaJuego() {
-		
-		
-	}
-
 
 	public void accionarPantallaRanking() {
 		
@@ -82,6 +81,7 @@ public class ControladorVistas implements ControladorDeVistas,ControladorEntreJu
 		
 		
 	}
+	
 
 
 	public Observer registrarEntidad(EntidadLogica entidadLogica) {
@@ -100,6 +100,12 @@ public class ControladorVistas implements ControladorDeVistas,ControladorEntreJu
 		Observer observerSilueta = pantallaJuego.incorporarSilueta(silueta);
 		refrescar();
 		return observerSilueta;
+	}
+	
+	public void registrarKeyListener(KeyListenerMario oyenteTeclado) {
+		ventana.addKeyListener(oyenteTeclado);
+		ventana.setFocusable(true);
+		ventana.requestFocusInWindow();
 	}
 	
 }

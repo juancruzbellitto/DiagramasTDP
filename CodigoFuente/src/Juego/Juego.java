@@ -3,6 +3,7 @@ package Juego;
 import java.util.List;
 
 
+
 import Fabricas.*;
 import Parser.GeneradorNivel;
 import Grafica.Observer;
@@ -14,6 +15,7 @@ public class Juego {
 	protected FabricaSprites fabricaSprites;
 	protected FabricaEntidades fabricaEntidades;
 	protected Nivel nivelActual;
+	protected MoverMario moverMario;
 	
 	public Juego() {
 		fabricaSprites = new FabricaSpritesModo1();
@@ -25,24 +27,45 @@ public class Juego {
 		this.controladorVistas=controladorVistas;
 	}
 	
+	public Nivel getNivelActual() {
+		return nivelActual;
+	}
+	
 	public void iniciar() {
 		nivelActual = generadorNivel.generarNivel(1);
-		registrarObservers();
+		registrarObserversYOyente();
+		moverMario = new MoverMario(this);
+		moverMario.start();
 		controladorVistas.mostrarPantallaJuego();
 	}
 	
-	protected void registrarObservers() {
+	public void actualizarSpriteJugador() {
+		if(nivelActual.getJugador().getDireccion()!=0) {
+			nivelActual.getJugador().setSprite(fabricaSprites.getMarioMoviendo());
+		}
+		else {
+			nivelActual.getJugador().setSprite(fabricaSprites.getMarioInmovil());
+		}
+	}
+	
+	
+	protected void registrarObserversYOyente() {
 		registrarObserverJugador(nivelActual.getJugador());
+		registrarOyenteJugador(nivelActual.getJugador());
 		registrarObserverSilueta(nivelActual.getSilueta());
 		registrarObserversParaEntidades(nivelActual.getListaEnemigos());
 		registrarObserversParaEntidades(nivelActual.getListaPlataformas());
 		registrarObserversParaEntidades(nivelActual.getListaPowerUps());
-		//registrarObserversParaEntidades(nivelActual.getListaProyectiles());
 	}
 	
 	protected void registrarObserverJugador(Jugador jugador) {
 		Observer observerJugador = controladorVistas.registrarEntidad(jugador);
 		jugador.registrarObserver(observerJugador);
+	}
+	
+	protected void registrarOyenteJugador(EntidadJugador jugador) {
+		KeyListenerMario oyente=new KeyListenerMario(jugador);
+		controladorVistas.registrarKeyListener(oyente);
 	}
 	
 	protected void registrarObserverSilueta(Silueta silueta) {
@@ -56,6 +79,7 @@ public class Juego {
 			entidad.registrarObserver(observer);
 		}
 	}
+	
 }
 
 
