@@ -28,7 +28,7 @@ public class FabricaEntidades {
 		
 		// agregar estados para las sprites
 		
-		Sprite jugadorSprite = fabricaSprites.getMarioInmovil();
+		Sprite jugadorSprite = fabricaSprites.getMarioMoviendo();
 		Jugador jugador = new Jugador(jugadorSprite,x,y);
 		return jugador;
 	}

@@ -2,6 +2,8 @@ package Grafica;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -10,6 +12,8 @@ import javax.swing.JScrollPane;
 
 import Juego.EntidadJugador;
 import Juego.EntidadLogica;
+import Juego.HiloMario;
+import KeyHandler.KeyHandler;
 
 public class PantallaJuego extends JPanel{
 
@@ -17,12 +21,12 @@ public class PantallaJuego extends JPanel{
 	protected JPanel panelJuego;
 	protected JLabel imagenJuego;
 	protected JScrollPane panelScrollJuego;
- 
 	
 	public PantallaJuego() {
 		setPreferredSize(new Dimension(ConstantesVistas.PANEL_JUEGO_ANCHO, ConstantesVistas.PANEL_JUEGO_ALTO));
 		setLayout(new BorderLayout());
 		agregarPanelJuegoConFondoYScroll();
+		
 	}
 	
 	protected void agregarPanelJuegoConFondoYScroll() {
@@ -49,7 +53,7 @@ public class PantallaJuego extends JPanel{
 	}
 	
 	public Observer incorporarEntidadJugador(EntidadJugador entidad_jugador) {
-		ObserverJugador observerJugador = new ObserverJugador(this, entidad_jugador);
+		ObserverJugador observerJugador = new ObserverJugador(this, entidad_jugador);		
 		imagenJuego.add(observerJugador);
 		//actualizar_info_jugador(entidad_jugador);
 		return observerJugador;
@@ -62,5 +66,14 @@ public class PantallaJuego extends JPanel{
 		panelJuego.setPreferredSize(new Dimension(imagenJuego.getIcon().getIconWidth(), imagenJuego.getIcon().getIconHeight()));
 		return observerEntidad;
 	}
+	
+//	public void paintComponent(Graphics graficos) {
+//		super.paintComponent(graficos);
+//		Graphics2D graficos2D = (Graphics2D) graficos;
+//		
+//		observer.draw(graficos2D);
+//		
+//		graficos2D.dispose();
+//	}
 		
 }

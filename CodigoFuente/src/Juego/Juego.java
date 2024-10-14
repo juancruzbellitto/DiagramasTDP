@@ -6,6 +6,8 @@ import java.util.List;
 import Fabricas.*;
 import Parser.GeneradorNivel;
 import Grafica.Observer;
+import Hilos.HiloMario;
+import KeyHandler.KeyHandler;
 import Grafica.ControladorEntreJuegoVista;
 
 public class Juego {
@@ -29,15 +31,23 @@ public class Juego {
 		nivelActual = generadorNivel.generarNivel(1);
 		registrarObservers();
 		controladorVistas.mostrarPantallaJuego();
+		HiloMario hiloMario = new HiloMario(nivelActual.getJugador());
+		hiloMario.start();
+		
 	}
 	
 	protected void registrarObservers() {
 		registrarObserverJugador(nivelActual.getJugador());
+		registrarListenerJugador(nivelActual.getJugador());
 		registrarObserverSilueta(nivelActual.getSilueta());
 		registrarObserversParaEntidades(nivelActual.getListaEnemigos());
 		registrarObserversParaEntidades(nivelActual.getListaPlataformas());
 		registrarObserversParaEntidades(nivelActual.getListaPowerUps());
-		//registrarObserversParaEntidades(nivelActual.getListaProyectiles());
+	}
+	
+	protected void registrarListenerJugador(EntidadJugador jugador) {
+		KeyHandler oyente = new KeyHandler(jugador);
+		controladorVistas.registrarKeyListener(oyente);
 	}
 	
 	protected void registrarObserverJugador(Jugador jugador) {

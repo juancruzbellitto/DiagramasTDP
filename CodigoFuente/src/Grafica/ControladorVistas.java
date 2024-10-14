@@ -6,6 +6,12 @@ import javax.swing.JFrame;
 import Juego.EntidadJugador;
 import Juego.EntidadLogica;
 import Juego.Juego;
+import KeyHandler.KeyHandler;
+import Paneles.PantallaFinNivel;
+import Paneles.PantallaGameOver;
+import Paneles.PantallaInicial;
+import Paneles.PantallaJuego;
+import Paneles.PantallaRanking;
 
 public class ControladorVistas implements ControladorDeVistas,ControladorEntreJuegoVista{
 	protected JFrame ventana;
@@ -42,6 +48,7 @@ public class ControladorVistas implements ControladorDeVistas,ControladorEntreJu
 	}
 	
 	protected void refrescar() {
+		//ventana.pack();
 		ventana.revalidate();
 		ventana.repaint();
 	}
@@ -62,7 +69,6 @@ public class ControladorVistas implements ControladorDeVistas,ControladorEntreJu
 
 	public void accionarInicioJuego() {
 		juego.iniciar();
-		
 	}
 
 
@@ -100,6 +106,12 @@ public class ControladorVistas implements ControladorDeVistas,ControladorEntreJu
 		Observer observerSilueta = pantallaJuego.incorporarSilueta(silueta);
 		refrescar();
 		return observerSilueta;
+	}
+	
+	public void registrarKeyListener(KeyHandler oyente) {
+		ventana.addKeyListener(oyente);
+		ventana.setFocusable(true);
+		ventana.requestFocusInWindow();
 	}
 	
 }

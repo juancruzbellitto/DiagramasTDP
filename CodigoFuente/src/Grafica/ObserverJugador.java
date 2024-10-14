@@ -1,6 +1,7 @@
 package Grafica;
 
 import Juego.EntidadJugador;
+import Paneles.PantallaJuego;
 
 public class ObserverJugador extends ObserverGrafico{
 
@@ -11,12 +12,12 @@ public class ObserverJugador extends ObserverGrafico{
 	public ObserverJugador(PantallaJuego pantallaJuego, EntidadJugador jugadorObservado) {
 		super(jugadorObservado);
 		this.pantallaJuego = pantallaJuego;
-		this.jugadorObservado = jugadorObservado;
+		
 		actualizar();
 	}
 	
-	public void actualizar() {
+	public void actualizar() {		
 		super.actualizar();
-		//pantallaJuego.actualizarScrollHaciaJugador(jugadorObservado);
+		pantallaJuego.actualizarScrollHaciaJugador(jugadorObservado);
 	}
 }
