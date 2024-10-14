@@ -9,6 +9,8 @@ public class Jugador implements EntidadJugador{
 	protected int x;
 	protected int y;
 	protected int velX;
+	protected int velY;
+	protected boolean enElAire=false;
 	protected Observer observer;
 	
 	public Jugador(Sprite sprite, int x, int y) {
@@ -50,16 +52,49 @@ public class Jugador implements EntidadJugador{
 	}
 
 	public void saltar() {
+		if(!enElAire) {
+			velY=-15;
+			enElAire=true;
+			
+		}
+		
 		
 	}
 
 	public void moverIzquierda() {
+		setVelX(-5);
 		
 	}
 
 	public void moverDerecha() {
+		setVelX(5);
 		
 	}
+	public void detener() {
+		setVelX(0);
+	}
+	public void actualizar() {
+        x += velX;
+        y += velY;
+        
+        if (enElAire) {
+            velY += 1;  
+        }
+
+        if (y >= 0) {  
+            y = 0;
+            enElAire = false;
+            velY = 0;
+        }
+
+        if (observer != null) { // ?????????? no se si hace falta avisarle al observer
+            observer.actualizar();  
+        }
+    }
+
+		
+		
+	
 
 	public void lanzarBolasDeFuego() {
 		
@@ -69,7 +104,8 @@ public class Jugador implements EntidadJugador{
 		
 	}
 
-	public void serAfectado(EntidadLogica e) {
+	public void serAfectado(EntidadLogica e){
+		
 		
 	}
 	
